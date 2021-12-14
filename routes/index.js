@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { yourmom: 'Express', image: 'images/sciac-logo.png' });
+  res.render('index', { title: 'Express', body: './views/layout' });
 });
 
 module.exports = router;
