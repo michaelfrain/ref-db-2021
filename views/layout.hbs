@@ -4,7 +4,22 @@
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/css-output/main.css' />
   </head>
-  <body class="d-flex h-100 text-center text-black">
+  <body class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class ="mb-auto">
+    <div>
+        {{!-- <img src={{image}} class='float-md-start mb-0'> --}}
+        <h3 class="float-md-start mb-0">SCIAC</h3>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link" href="mailto:michaelfrain@me.com">Contact</a>
+      </nav>
+    </div>
+    </header>
+
     {{{body}}}
+
+    <footer class="mt-auto text-white-50">
+        <p>Website &copy; 2021 Michael Frain</p>
+    </footer>
   </body>
 </html>
