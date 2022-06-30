@@ -35,7 +35,7 @@ server.on('listening', onListening);
  */
 
 // mongoose.connect('mongodb+srv://admin:KVViWInTBtKf2pMS@sciac-0.koiol.mongodb.net/testDatabase?retryWrites=true&w=majority');
-// mongoose.connect('mongodb://127.0.0.1:27017')
+mongoose.connect('mongodb://127.0.0.1:27017')
 
 /**
  * Normalize a port into a number, string, or false.
