@@ -10120,14 +10120,14 @@ a {
 .nav-masthead .nav-link {
   padding: 0.25rem 0;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(50, 50, 50, 0.5);
   background-color: transparent;
   border-bottom: 0.25rem solid transparent;
 }
 
 .nav-masthead .nav-link:hover,
 .nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, 0.25);
+  border-bottom-color: rgba(0, 0, 255, 0.75);
 }
 
 .nav-masthead .nav-link + .nav-link {
@@ -10135,8 +10135,13 @@ a {
 }
 
 .nav-masthead .active {
-  color: #fff;
-  border-bottom-color: #fff;
+  color: rgba(0, 0, 0, 0.75);
+  border-bottom-color: rgba(0, 0, 0, 0.75);
+}
+
+.img-shrink {
+  height: 50px;
+  width: 100px;
 }
 
 :root {
