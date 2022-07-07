@@ -8,10 +8,9 @@
     <header class ="mb-auto">
     <div>
         <img src={{image}} class='float-md-start mb-0 img-shrink'>
-        {{!-- <h3 class="float-md-start mb-0">SCIAC</h3> --}}
         <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-        {{!-- <a class="nav-link" href="/login">Login</a> --}}
+        <a class={{{homeStatus}}} aria-current="page" href="/">Home</a>
+        <a class={{{registerStatus}}} href="/register">Register</a>
         <a class="nav-link" href="mailto:michaelfrain@me.com">Contact</a>
       </nav>
     </div>
@@ -19,8 +18,8 @@
 
     {{{body}}}
 
-    <footer class="mt-auto text-white-50">
-        <p>Website &copy; 2021 Michael Frain</p>
+    <footer class="mt-auto text-black-50">
+        <p>Website &copy; 2022 Michael Frain/FCS West</p>
     </footer>
   </body>
 </html>

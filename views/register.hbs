@@ -1,8 +1,22 @@
-<form method="post" action="/register/create">
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname">
+
+<form action="/register" method="post">
+<div class="form-group">
+    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name">
+  </div>
   <br />
-  <input type="submit" value="Submit" />
+  <div class="form-group">
+    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name">
+  </div>
+  <br />
+  <div class="form-group">
+    <input type="email" class="form-control" id="email" name="email" placeholder="Username">
+  </div>
+  <br />
+  <div class="form-group">
+    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+  </div>
+  <br />
+  <div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
 </form>
