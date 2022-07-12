@@ -7,7 +7,12 @@ var User = require('../models/user');
 router.get('/', function(req, res, next) {
   let active = "\"nav-link active\""
   let inactive = "\"nav-link\""
-  res.render('register', { title: 'Register new user', homeStatus: inactive, loginStatus: active, registerStatus: inactive });
+  res.render('register', { 
+    title: 'Register new user', 
+    home: inactive, 
+    login: inactive, 
+    register: active 
+  });
 });
 
 router.post('/', async function(req, res) {
