@@ -34,8 +34,8 @@ server.on('listening', onListening);
  * Create MongoDB server connection.
  */
 
-mongoose.connect('mongodb+srv://admin:ZD71BXo4iJfRxzj1@sciac-0.koiol.mongodb.net/testDatabase?retryWrites=true&w=majority');
-// mongoose.connect('mongodb://localhost:27017')
+// mongoose.connect('mongodb+srv://admin:ZD71BXo4iJfRxzj1@sciac-0.koiol.mongodb.net/testDatabase?retryWrites=true&w=majority');
+mongoose.connect('mongodb://localhost:27017')
 
 /**
  * Normalize a port into a number, string, or false.

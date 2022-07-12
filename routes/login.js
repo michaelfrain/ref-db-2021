@@ -7,10 +7,18 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
     let active = "\"nav-link active\"";
     let inactive = "\"nav-link\"";
-    res.render('login', { title: 'Login to the SCIAC Portal', homeStatus: inactive, loginStatus: active, registerStatus: inactive });
+    res.render('login', { 
+        title: 'Login to the SCIAC Portal', 
+        home: inactive, 
+        login: active, 
+        register: inactive 
+    });
 });
 
-router.post('/',passport.authenticate('local', { failureRedirect: '/', failureFlash: true }), function (req, res) {
+router.post('/',passport.authenticate('local', { 
+    successRedirect: './profile',
+    failureRedirect: './login'
+}), function (req, res) {
     res.status(200).json({
         status: "logged in!"
     });

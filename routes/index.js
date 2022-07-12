@@ -5,7 +5,21 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   let active = "\"nav-link active\""
   let inactive = "\"nav-link\""
-  res.render('index', { title: 'SCIAC Home', homeStatus: active, registerStatus: inactive, loginStatus: inactive });
+  if (req.user != undefined) {
+    res.render('index', { 
+      title: 'SCIAC Home', 
+      username: `${req.user.firstname} ${req.user.lastname}`,
+      home: active,
+      profile: inactive,
+      layout: 'authlayout' });
+  } else {
+    res.render('index', { 
+      title: 'SCIAC Home',
+      home: active,
+      login: inactive,
+      register: inactive 
+    });
+  }
 });
 
 module.exports = router;
