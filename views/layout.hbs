@@ -4,21 +4,21 @@
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/css-output/main.css' />
   </head>
-  <body class="nav-masthead d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class ="mb-auto">
+  <body class="nav-masthead container d-flex h-100 flex-column">
+    <header class ="mb-auto w-auto">
     <div>
         <img src= "images/sciac-logo.png" class='float-md-start mb-0 img-shrink'>
         <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class={{{home}}} aria-current="page" href="/">Home</a>
-        <a class={{{login}}} href="/login">Login</a>
-        <a class={{{register}}} href="/register">Register</a>
+        <a class="nav-link {{home}}" href="/">Home</a>
+        <a class="nav-link {{login}}" href="/login">Login</a>
+        <a class="nav-link {{register}}" href="/register">Register</a>
       </nav>
     </div>
     </header>
 
     {{{body}}}
 
-    <footer class="mt-auto text-black-50 ">
+    <footer class="mt-auto text-black-50">
         <p>Website &copy; 2022 Michael Frain/FCS West</p>
     </footer>
   </body>

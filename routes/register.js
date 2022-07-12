@@ -5,12 +5,9 @@ var User = require('../models/user');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  let active = "\"nav-link active\""
-  let inactive = "\"nav-link\""
+  let active = "active"
   res.render('register', { 
     title: 'Register new user', 
-    home: inactive, 
-    login: inactive, 
     register: active 
   });
 });

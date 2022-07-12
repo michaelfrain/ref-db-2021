@@ -5,13 +5,10 @@ var router = express.Router();
 
 /* GET login page. */
 router.get('/', function(req, res, next) {
-    let active = "\"nav-link active\"";
-    let inactive = "\"nav-link\"";
+    let active = "active";
     res.render('login', { 
         title: 'Login to the SCIAC Portal', 
-        home: inactive, 
-        login: active, 
-        register: inactive 
+        login: active,  
     });
 });
 
