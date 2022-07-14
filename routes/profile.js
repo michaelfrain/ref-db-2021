@@ -5,16 +5,30 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
     let active = "active"
     if (req.user != undefined) {
-      res.render('profile', { 
+      res.render('profile-basic', { 
         title: 'SCIAC Home', 
         username: `${req.user.firstname} ${req.user.lastname}`, 
+        userLevel: req.user.userLevel,
         layout: 'authlayout',
-        profile: active
+        basic: active
      });
     } else {
         res.redirect('./login');
     }
 
+  });
+
+  router.get('/password', function(req, res, next) {
+    let active = "active"
+    if (req.user != undefined) {
+      res.render('profile-password', {
+        title: 'Basic information',
+        layout: 'authlayout',
+        password: active
+       });
+    } else {
+      res.redirect('./login');
+    }
   });
   
   module.exports = router;

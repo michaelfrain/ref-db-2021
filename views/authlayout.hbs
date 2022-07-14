@@ -4,16 +4,19 @@
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/css-output/main.css' />
   </head>
-  <body class="nav-masthead d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class ="mb-auto">
-    <div>
+  <body class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
         <img src= "images/sciac-logo.png" class='float-md-start mb-0 img-shrink'>
-        <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link {{home}}" href="/">Home</a>
-        <a class="nav-link {{profile}}" href="/profile">{{username}}</a>
-      </nav>
-    </div>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/" class="nav-link {{home}}" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="/profile" class="nav-link {{profile}}">{{username}}</a></li>
+      </ul>
     </header>
+  </div>
 
     {{{body}}}
 
