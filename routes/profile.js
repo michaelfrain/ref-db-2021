@@ -10,7 +10,10 @@ router.get('/', function(req, res, next) {
         username: `${req.user.firstname} ${req.user.lastname}`, 
         userLevel: req.user.userLevel,
         layout: 'authlayout',
-        basic: active
+        basic: active,
+        firstname: req.user.firstname,
+        lastname: req.user.lastname,
+        email: req.user.email
      });
     } else {
         res.redirect('./login');

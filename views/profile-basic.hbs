@@ -1,2 +1,24 @@
+<div class="hstack gap-3 h-100 w-100 p-0">
 {{> profile}}
-<p>Hello, world!</p>
+    <form class="h-100 p-3 w-100">
+    <div class="row mb-3">
+        <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-6">
+        <input type="text" class="form-control" id="firstname" name="firstname" placeholder={{firstname}}>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
+        <div class="col-sm-6">
+       <input type="text" class="form-control" id="lastname" name="lastname" placeholder={{lastname}}>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <label for="email" class="col-sm-2 col-form-label">E-Mail Address</label>
+        <div class="col-sm-6">
+       <input type="email" class="form-control" id="email" name="email" placeholder={{email}}>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Confirm</button>
+    </form>
+</div>
