@@ -1,4 +1,6 @@
 var express = require('express');
+var passport = require('passport-local');
+var User = require('../models/user');
 var router = express.Router();
 
 /* GET home page. */
@@ -32,6 +34,33 @@ router.get('/', function(req, res, next) {
     } else {
       res.redirect('./login');
     }
+  });
+
+  router.post('/password', function(req, res, next) {
+   if (req.body.oldPassword == '' || req.body.newPassword == '' || req.body.newPassword != req.body.newPasswordConfirm) {
+    res.status(400).json( {
+      success: false,
+      message: "Passwords do not match."
+    });
+    return;
+   }
+    User.findOne({ email: req.user.email }, function (err, user) {
+      if (err) {
+        res.json({ success: false, message: err });
+      } else {
+        if (!user) {
+          res.json({ success: false, message: 'User not found' });
+        } else {
+          user.changePassword(req.body.oldPassword, req.body.newPassword, function(err) {
+            if(err) {
+              res.json({ success: false, message: 'Password error' });
+            } else {
+              res.json({ success: true, message: 'Your password has been changed successfully' });
+            }
+          });
+        }
+      }
+    });
   });
   
   module.exports = router;
