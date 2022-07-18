@@ -36,6 +36,28 @@ router.get('/', function(req, res, next) {
     }
   });
 
+  router.post('/', async function(req, res, next) {
+    const userDoc = await User.findOne({ email: req.user.email }).exec();
+    if (!userDoc) {
+      res.json({ success: false, message: 'User not found' });
+      return;
+    }
+
+    if (req.body.firstname != '') {
+      userDoc.firstname = req.body.firstname;
+    }
+    if (req.body.lastname != '') {
+      userDoc.lastname = req.body.lastname;
+    }
+    if (req.body.email != '') {
+      userDoc.email = req.body.email
+    }
+
+    userDoc.save();
+
+    res.json({ success: true, message: userDoc });
+  });
+
   router.post('/password', function(req, res, next) {
    if (req.body.oldPassword == '' || req.body.newPassword == '' || req.body.newPassword != req.body.newPasswordConfirm) {
     res.status(400).json( {
