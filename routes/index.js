@@ -9,7 +9,9 @@ router.get('/', function(req, res, next) {
       title: 'SCIAC Home', 
       username: `${req.user.firstname} ${req.user.lastname}`,
       home: active,
-      layout: 'authlayout' });
+      layout: 'authlayout',
+      userLevel: req.user.userLevel
+     })
   } else {
     res.render('index', { 
       title: 'SCIAC Home',
