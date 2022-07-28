@@ -1,5 +1,6 @@
 var express = require('express');
 var passport = require('passport');
+const { options } = require('.');
 var User = require ('../models/user');
 var router = express.Router();
 
@@ -8,17 +9,16 @@ router.get('/', function(req, res, next) {
     let active = "active";
     res.render('login', { 
         title: 'Login to the SCIAC Portal', 
-        login: active,  
+        login: active,
+        message: req.session.messages ? req.session.messages[0] : ''
     });
 });
 
-router.post('/',passport.authenticate('local', { 
-    successRedirect: './profile',
-    failureRedirect: './login'
-}), function (req, res) {
-    res.status(200).json({
-        status: "logged in!"
-    });
+router.post('/',passport.authenticate('local', {
+    failureRedirect: './login',
+    failureMessage: true
+}), function(req, res) {
+    res.redirect('/');
 });
 
 passport.use(User.createStrategy());

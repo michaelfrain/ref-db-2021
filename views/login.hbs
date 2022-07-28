@@ -1,4 +1,8 @@
-
+{{#if_not message ''}}
+<div class="alert alert-danger" role="alert">
+  {{message}}
+</div>
+{{/if_not}}
 <form action="/login" method="post" class="w-50 mt-3 mx-auto">
   <div class="form-group">
     <input type="email" class="form-control" id="email" name="email" placeholder="Username">
