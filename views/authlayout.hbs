@@ -18,7 +18,13 @@
       <div class="collapse navbar-collapse" id="navbarsExample07">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end">
           <li class="nav-item"><a href="/" class="nav-link {{home}}" aria-current="page">Home</a></li>
-          <li class="nav-item"><a href="/profile" class="nav-link {{profile}}">{{username}}</a></li>
+          <li class="nav-item"><a href="/profile" class="nav-link {{profile}}">Profile</a></li>
+          {{#if_equals userLevel "admin"}}
+          <li class="nav-item"><a href="/users" class="nav-link {{register}}">Users</a></li>
+          {{/if_equals}}
+          {{#if_not userLevel "guest" }}
+          <li class="nav-item"><a href="/reports" class="nav-link {{register}}">Reports</a></li>
+          {{/if_not}}
         </ul>
       </div>
     </div>

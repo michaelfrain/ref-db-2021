@@ -10,15 +10,29 @@ var session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 var profileRouter = require('./routes/profile');
+var reportsRouter = require('./routes/reports');
 const { hasSubscribers } = require('diagnostics_channel');
 
 var app = express();
 
 // view engine setup
 hbs.registerPartials(__dirname + '/views/partials');
+hbs.registerHelper("if_equals", function(left, right, options) {
+  if (left == right) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+hbs.registerHelper("if_not", function(left, right, options) {
+  if (left != right) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -38,8 +52,9 @@ app.use(passport.session());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter)
-app.use('/register', registerRouter);
+app.use('/users', usersRouter);
 app.use('/profile', profileRouter);
+app.use('/reports', reportsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
