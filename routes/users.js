@@ -7,7 +7,8 @@ var User = require('../models/user');
 router.get('/', function(req, res, next) {
   let active = "active"
   res.render('register', { 
-    title: 'Register new user', 
+    title: 'Register new user',
+    layout: 'authlayout',
     register: active 
   });
 });

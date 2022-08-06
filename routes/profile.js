@@ -8,7 +8,8 @@ router.get('/', function(req, res, next) {
     let active = "active"
     if (req.user != undefined) {
       res.render('profile-basic', { 
-        title: 'SCIAC Home', 
+        title: 'SCIAC Home',
+        layout: 'authlayout',
         username: `${req.user.firstname} ${req.user.lastname}`, 
         userLevel: req.user.userLevel,
         layout: 'authlayout',
@@ -59,10 +60,17 @@ router.get('/', function(req, res, next) {
   });
 
   router.post('/password', function(req, res, next) {
+  let active = "active"
    if (req.body.oldPassword == '' || req.body.newPassword == '' || req.body.newPassword != req.body.newPasswordConfirm) {
-    res.status(400).json( {
-      success: false,
-      message: "Passwords do not match."
+    // res.status(400).json( {
+    //   success: false,
+    //   message: "Passwords do not match."
+    // });
+    res.render('profile-password', {
+      title: 'Basic information',
+      layout: 'authlayout',
+      password: active,
+      message: 'Passwords do not match.'
     });
     return;
    }
