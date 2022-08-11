@@ -1,65 +1,6 @@
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 
-body {
-    padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    background-color: lightgray;
-  }
-  
-  a {
-    color: #00B7FF;
-  }
-
-  .cover-container {
-    max-width: 42em;
-  }
-
-  .nav-masthead .nav-link {
-    padding: .25rem 0;
-    font-weight: 700;
-    color: rgba(50, 50, 50, 0.5);
-    background-color: transparent;
-    border-bottom: .25rem solid transparent;
-  }
-  
-  .nav-masthead .nav-link:hover,
-  .nav-masthead .nav-link:focus {
-    border-bottom-color: rgba(0, 0, 255, 0.75);
-  }
-  
-  .nav-masthead .nav-link + .nav-link {
-    margin-left: 1rem;
-  }
-  
-  .nav-masthead .active {
-    color: rgba(0, 0, 0, 0.75);
-    border-bottom-color: rgba(0, 0, 0, 0.75);
-  } 
-
   .img-shrink {
     height: 50px;
     width: 100px;
   }
-
-  // 3. Include remainder of required Bootstrap stylesheets
-@import "../../../node_modules/bootstrap/scss/variables";
-
-// 4. Include any default map overrides here
-
-// 5. Include remainder of required parts
-@import "../../../node_modules/bootstrap/scss/mixins";
-@import "../../../node_modules/bootstrap/scss/root";
-
-// 6. Optionally include any other parts as needed
-@import "../../../node_modules/bootstrap/scss/utilities";
-@import "../../../node_modules/bootstrap/scss/reboot";
-@import "../../../node_modules/bootstrap/scss/type";
-@import "../../../node_modules/bootstrap/scss/images";
-@import "../../../node_modules/bootstrap/scss/containers";
-@import "../../../node_modules/bootstrap/scss/grid";
-@import "../../../node_modules/bootstrap/scss/helpers";
-
-// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
-@import "../../../node_modules/bootstrap/scss/utilities/api";
-
-// 8. Add additional custom code here

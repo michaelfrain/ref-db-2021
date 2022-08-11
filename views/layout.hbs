@@ -3,31 +3,33 @@
   <head>
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/css-output/main.css' />
+    <script src="/bootstrap-js/bootstrap.min.js"></script>
   </head>
   <body class="d-flex w-100 h-100 p-0 mx-auto flex-column">
 
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #76aedc">
-    <div class="container">
-      <a class="navbar-brand" href="/">
-        <img src= "images/sciac-logo.png" class='float-md-start mb-0 img-shrink'>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #76aedc">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img src= "/images/sciac-logo.png" class='float-md-start mb-0 img-shrink'>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#unauthNavbar" aria-controls="unauthNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExample07">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end">
-          <li class="nav-item"><a href="/" class="nav-link {{home}}" aria-current="page">Home</a></li>
-          <li class="nav-item"><a href="/login" class="nav-link {{login}}">Login</a></li>
-        </ul>
+        <div class="collapse navbar-collapse" id="unauthNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end">
+            <li class="nav-item"><a href="/" class="nav-link {{home}}" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="/login" class="nav-link {{login}}">Login</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
     {{{body}}}
 
     <footer class="mt-auto text-black-50 text-center">
         <p>Website &copy; 2022 Michael Frain/FCS West</p>
     </footer>
+
   </body>
 </html>

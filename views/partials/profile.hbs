@@ -1,5 +1,5 @@
 {{#if_not message ''}}
-<div class="alert alert-danger" role="alert">
+<div class="alert alert-{{alertLevel}}" role="alert">
   {{message}}
 </div>
 {{/if_not}}
@@ -11,7 +11,7 @@
         </a>
       </li>
       <li>
-        <a href="/profile/password" class="nav-link {{password}} link-dark">
+        <a href="/profile/password" class="nav-link {{password}}">
           Password
         </a>
       </li>

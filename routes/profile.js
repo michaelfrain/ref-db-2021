@@ -1,5 +1,6 @@
 var express = require('express');
 var passport = require('passport-local');
+const app = require('../app');
 var User = require('../models/user');
 var router = express.Router();
 
@@ -18,8 +19,11 @@ router.get('/', function(req, res, next) {
         lastname: req.user.lastname,
         email: req.user.email
      });
+     res.app.locals.message = '';
     } else {
-        res.redirect('./login');
+      res.app.locals.alertLevel = "danger";
+      res.app.locals.message = "Please log in.";
+      res.redirect('./login');
     }
 
   });
@@ -32,7 +36,10 @@ router.get('/', function(req, res, next) {
         layout: 'authlayout',
         password: active
        });
+       res.app.locals.message = '';
     } else {
+      res.app.locals.alertLevel = "danger";
+      res.app.locals.message = "Please log in.";
       res.redirect('./login');
     }
   });
@@ -40,7 +47,19 @@ router.get('/', function(req, res, next) {
   router.post('/', async function(req, res, next) {
     const userDoc = await User.findOne({ email: req.user.email }).exec();
     if (!userDoc) {
-      res.json({ success: false, message: 'User not found' });
+      res.app.locals.success = false;
+      res.app.locals.message = "No user found.";
+      res.render('profile-basic', {
+        title: 'SCIAC Home',
+        layout: 'authlayout',
+        username: `${req.user.firstname} ${req.user.lastname}`, 
+        userLevel: req.user.userLevel,
+        layout: 'authlayout',
+        basic: active,
+        firstname: req.user.firstname,
+        lastname: req.user.lastname,
+        email: req.user.email,
+      })
       return;
     }
 
@@ -62,34 +81,32 @@ router.get('/', function(req, res, next) {
   router.post('/password', function(req, res, next) {
   let active = "active"
    if (req.body.oldPassword == '' || req.body.newPassword == '' || req.body.newPassword != req.body.newPasswordConfirm) {
-    // res.status(400).json( {
-    //   success: false,
-    //   message: "Passwords do not match."
-    // });
-    res.render('profile-password', {
-      title: 'Basic information',
-      layout: 'authlayout',
-      password: active,
-      message: 'Passwords do not match.'
-    });
+    res.app.locals.success = false;
+    res.app.locals.message = "Passwords do not match.";
+    res.redirect('/profile/password');
     return;
    }
     User.findOne({ email: req.user.email }, function (err, user) {
       if (err) {
-        res.json({ success: false, message: err });
+        res.app.locals.alertLevel = "danger";
+        res.app.locals.message = err.message;
       } else {
         if (!user) {
-          res.json({ success: false, message: 'User not found' });
+          res.app.locals.alertLevel = "danger";
+          res.app.locals.message = "User not available.";
         } else {
           user.changePassword(req.body.oldPassword, req.body.newPassword, function(err) {
             if(err) {
-              res.json({ success: false, message: 'Password error' });
+              res.app.locals.alertLevel = "danger";
+              res.app.locals.message = err.message;
             } else {
-              res.json({ success: true, message: 'Your password has been changed successfully' });
+              res.app.locals.alertLevel = "success";
+              res.app.locals.message = "Your password was changed successfully.";
             }
           });
         }
       }
+      res.redirect('/profile/password');
     });
   });
   

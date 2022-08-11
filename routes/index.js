@@ -3,6 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  res.app.locals.message = '';
   let active = "active"
   if (req.user != undefined) {
     res.render('index', { 

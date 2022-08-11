@@ -1,12 +1,17 @@
+{{#if_not message ''}}
+<div class="alert alert-{{alertLevel}}" role="alert">
+  {{message}}
+</div>
+{{/if_not}}
 <div class="d-flex flex-column flex-shrink-0 h-100 bg-light p-2" style="width: 280px;">
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="/reports" class="nav-link {{basic}}" aria-current="page">
+        <a href="/reports" class="nav-link {{reports}}" aria-current="page">
           Fouls
         </a>
       </li>
       <li>
-        <a href="/reports/evaluations" class="nav-link {{password}} link-dark">
+        <a href="/reports/evaluations" class="nav-link {{evals}} link-dark">
           Evaluations
         </a>
       </li>
