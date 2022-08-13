@@ -7,7 +7,8 @@ router.get('/', function(req, res, next) {
         res.render('reports-fouls', {
             title: "Reports",
             layout: 'authlayout',
-            reports: active
+            reports: active,
+            userLevel: req.user.userLevel
         });
     } else {
         res.app.locals.message = "Please log in.";
@@ -21,7 +22,8 @@ router.get('/evaluations', function(req, res, next) {
         res.render('reports-evals', {
             title: "Reports",
             layout: 'authlayout',
-            evals: active
+            evals: active,
+            userLevel: req.user.userLevel
         });
     } else {
         res.app.locals.message = "Please log in.";

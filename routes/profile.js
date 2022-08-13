@@ -34,7 +34,8 @@ router.get('/', function(req, res, next) {
       res.render('profile-password', {
         title: 'Basic information',
         layout: 'authlayout',
-        password: active
+        password: active,
+        userLevel: req.user.userLevel
        });
        res.app.locals.message = '';
     } else {

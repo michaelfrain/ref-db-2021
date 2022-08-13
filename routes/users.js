@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
   res.render('register', { 
     title: 'Register new user',
     layout: 'authlayout',
-    register: active 
+    register: active,
+    userLevel: req.user.userLevel
   });
 });
 
