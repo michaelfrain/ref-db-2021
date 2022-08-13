@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
         res.render('reports-fouls', {
             title: "Reports",
             layout: 'authlayout',
-            fouls: active
+            reports: active
         });
     } else {
         res.app.locals.message = "Please log in.";

@@ -23,25 +23,3 @@
     <button type="submit" class="btn btn-primary">Confirm</button>
     </form>
 </div>
-
-<script>
-    const alertPlaceholder = document.getElementById('registerStatus')
-
-const alert = (message, type) => {
-  const wrapper = document.createElement('div')
-  wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message}</div>`,
-    '</div>'
-  ].join('')
-
-  alertPlaceholder.append(wrapper)
-}
-
-const alertTrigger = document.getElementById('liveAlertBtn')
-if (alertTrigger) {
-  alertTrigger.addEventListener('click', () => {
-    alert('Nice, you triggered this alert message!', 'success')
-  })
-}
-</script>
