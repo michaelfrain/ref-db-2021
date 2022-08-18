@@ -33,4 +33,22 @@ router.post('/register', async function(req, res) {
   });
 });
 
+router.post('/register-thirdparty', async function(req, res) {
+  let { firstname, lastname, email } = req.body;
+
+  User.register({ firstname: firstname, lastname: lastname, email: email }, "", function(err, user) {
+    if (err) {
+      console.log(err);
+      res.status(500);
+      return;
+    }
+
+    res.status(201).json({
+      data: {
+        user
+      }
+    })
+  });
+})
+
 module.exports = router;
