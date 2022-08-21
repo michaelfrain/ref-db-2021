@@ -14,6 +14,7 @@ var loginRouter = require('./routes/login');
 var profileRouter = require('./routes/profile');
 var reportsRouter = require('./routes/reports');
 var confirmRouter = require('./routes/confirm');
+var logoutRouter = require('./routes/logout');
 const { hasSubscribers } = require('diagnostics_channel');
 
 var app = express();
@@ -57,6 +58,7 @@ app.use('/login', loginRouter)
 app.use('/profile', profileRouter);
 app.use('/reports', reportsRouter);
 app.use('/confirm', confirmRouter);
+app.use('/logout', logoutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

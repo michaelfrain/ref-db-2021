@@ -23,14 +23,17 @@ router.post('/create', async function(req, res, next) {
       res.status(500);
       return;
     }
-    user.userLevel = 'pending';
+    user.userLevel = userLevel;
     user.save();
-    res.status(201).json({
-      status: 'Success',
-      data: {
-        user
-      }
-    });
+    // res.status(201).json({
+    //   status: 'Success',
+    //   data: {
+    //     user
+    //   }
+    // });
+    res.app.locals.message = 'User created.';
+    res.app.locals.alertLevel = 'success';
+    res.redirect('/users');
   });
 });
 
@@ -44,12 +47,12 @@ router.post('/register', async function(req, res, next) {
       return;
     }
 
-    res.status(201).json({
-      status: 'Success',
-      data: {
-        user
-      }
-    });
+    // res.status(201).json({
+    //   status: 'Success',
+    //   data: {
+    //     user
+    //   }
+    // });
   });
 });
 
