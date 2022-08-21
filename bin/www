@@ -34,7 +34,7 @@ server.on('listening', onListening);
  * Create MongoDB server connection.
  */
 
-mongoose.connect('mongodb+srv://admin:ZD71BXo4iJfRxzj1@sciac-0.koiol.mongodb.net/testDatabase?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://admin:ZD71BXo4iJfRxzj1@sciac-0.koiol.mongodb.net/database-2022?retryWrites=true&w=majority');
 // mongoose.connect('mongodb://localhost:27017')
 
 /**
