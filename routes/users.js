@@ -6,7 +6,7 @@ var User = require('../models/user');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   let active = "active"
-  res.render('register', { 
+  res.render('users', { 
     title: 'Register new user',
     layout: 'authlayout',
     register: active,
@@ -14,10 +14,30 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.post('/register', async function(req, res) {
-  let { firstname, lastname, email, password } = req.body;
+router.post('/create', async function(req, res, next) {
+  let { firstname, lastname, email, userLevel } = req.body;
 
-  User.register({ firstname: firstname, lastname: lastname, email: email }, password, function(err, user) {
+  User.create({ firstname: firstname, lastname: lastname, email: email }, function (err, user) {
+    if (err) {
+      console.log(err);
+      res.status(500);
+      return;
+    }
+    user.userLevel = 'pending';
+    user.save();
+    res.status(201).json({
+      status: 'Success',
+      data: {
+        user
+      }
+    });
+  });
+});
+
+router.post('/register', async function(req, res, next) {
+  let { firstname, lastname, email, password, userLevel } = req.body;
+
+  User.register({ firstname: firstname, lastname: lastname, email: email, userLevel: userLevel }, password, function(err, user) {
     if (err) {
       console.log(err);
       res.status(500);
@@ -32,23 +52,5 @@ router.post('/register', async function(req, res) {
     });
   });
 });
-
-router.post('/register-thirdparty', async function(req, res) {
-  let { firstname, lastname, email } = req.body;
-
-  User.register({ firstname: firstname, lastname: lastname, email: email }, "", function(err, user) {
-    if (err) {
-      console.log(err);
-      res.status(500);
-      return;
-    }
-
-    res.status(201).json({
-      data: {
-        user
-      }
-    })
-  });
-})
 
 module.exports = router;

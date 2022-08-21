@@ -11,8 +11,14 @@ const User = new Schema({
         type: String,
         enum: ['guest', 'official', 'admin'],
         default: 'guest'
-    } 
+    },
+    status: {
+        type: String,
+        enum: ['pending', 'confirmed'],
+        default: 'pending'
+    }
 });
+
 const options = {usernameField: 'email'};
 
 User.plugin(passportLocalMongoose, options);

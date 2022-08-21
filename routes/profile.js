@@ -8,6 +8,20 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
     let active = "active"
     if (req.user != undefined) {
+      if (req.user.needsPassword == true) {
+        res.render('profile-password-new-only', {
+        title: 'Create new password',
+        layout: 'authlayout',
+        username: `${req.user.firstname} ${req.user.lastname}`, 
+        userLevel: req.user.userLevel,
+        layout: 'layout',
+        basic: active,
+        firstname: req.user.firstname,
+        lastname: req.user.lastname,
+        email: req.user.email
+        });
+        res.app.locals.message = 'Create a new password.';
+      }
       res.render('profile-basic', { 
         title: 'SCIAC Home',
         layout: 'authlayout',

@@ -1,5 +1,5 @@
 
-<form action="/users/register" method="post" class="w-50 mt-3 mx-auto">
+<form action="/users/create" method="post" class="w-50 mt-3 mx-auto">
 <div class="form-group">
     <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name">
   </div>
@@ -13,7 +13,12 @@
   </div>
   <br />
   <div class="form-group">
-    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+  <select class="form-select" id="userLevel" name="userLevel">
+  <option selected>Select user level</option>
+  <option value="guest">Guest</option>
+  <option value="official">Official</option>
+  <option value="admin">Admin</option>
+  </select>
   </div>
   <br />
   <div>

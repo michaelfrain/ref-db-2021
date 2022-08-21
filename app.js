@@ -13,6 +13,7 @@ var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var profileRouter = require('./routes/profile');
 var reportsRouter = require('./routes/reports');
+var confirmRouter = require('./routes/confirm');
 const { hasSubscribers } = require('diagnostics_channel');
 
 var app = express();
@@ -53,9 +54,9 @@ app.use(passport.session());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter)
-app.use('/users', usersRouter);
 app.use('/profile', profileRouter);
 app.use('/reports', reportsRouter);
+app.use('/confirm', confirmRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
