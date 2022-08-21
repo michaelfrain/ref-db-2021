@@ -6,9 +6,8 @@ router.get('/', function(req, res, next) {
   res.app.locals.message = '';
   let active = "active"
   if (req.user != undefined) {
-    res.render('index', { 
-      title: 'SCIAC Home', 
-      username: `${req.user.firstname} ${req.user.lastname}`,
+    res.render('authindex', { 
+      title: 'SCIAC Officials Home', 
       home: active,
       layout: 'authlayout',
       userLevel: req.user.userLevel

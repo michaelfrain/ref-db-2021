@@ -25,34 +25,9 @@ router.post('/create', async function(req, res, next) {
     }
     user.userLevel = userLevel;
     user.save();
-    // res.status(201).json({
-    //   status: 'Success',
-    //   data: {
-    //     user
-    //   }
-    // });
     res.app.locals.message = 'User created.';
     res.app.locals.alertLevel = 'success';
     res.redirect('/users');
-  });
-});
-
-router.post('/register', async function(req, res, next) {
-  let { firstname, lastname, email, password, userLevel } = req.body;
-
-  User.register({ firstname: firstname, lastname: lastname, email: email, userLevel: userLevel }, password, function(err, user) {
-    if (err) {
-      console.log(err);
-      res.status(500);
-      return;
-    }
-
-    // res.status(201).json({
-    //   status: 'Success',
-    //   data: {
-    //     user
-    //   }
-    // });
   });
 });
 
