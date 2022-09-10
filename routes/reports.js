@@ -61,4 +61,19 @@ router.get('/quizzes', function(req, res, next) {
     }
 })
 
+router.get('/videos', function(req, res, next) {
+    if (req.user != undefined) {
+        let active = "active";
+        res.render('reports-videos', {
+            title: "Videos",
+            layout: 'authlayout',
+            quizzes: active,
+            userLevel: req.user.userLevel
+        });
+    } else {
+        res.app.locals.message = "Please log in.";
+        res.redirect('./login');
+    }
+})
+
 module.exports = router;
