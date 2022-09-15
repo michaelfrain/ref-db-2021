@@ -9,7 +9,7 @@ const User = new Schema({
     password: String, 
     userLevel: {
         type: String,
-        enum: ['guest', 'official', 'evaluator', 'admin'],
+        enum: ['guest', 'official', 'referee', 'evaluator', 'admin'],
         default: 'guest'
     },
     status: {
