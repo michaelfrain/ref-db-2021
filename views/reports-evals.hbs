@@ -29,7 +29,11 @@
             </tr>
             <tr>
                 <th scope="row">4</th>
-                <td>Not available</td>
+                {{#if_equals userLevel "evaluator"}}
+                <td><a href="https://docs.google.com/spreadsheets/d/1_80tprZCFL7pfXfG6pMBb_7LixkDBFT_39ANxmrdsyg/edit#gid=0">Evaluator View</a></td>
+                {{else}}
+                <td><a href="https://docs.google.com/spreadsheets/d/1fSH9w78PuRnrnuApGCFsKX4OQvhaikhq8t9Z0tRJzLc/edit#gid=0">Officials View</a></td>
+                {{/if_equals}}
             </tr>
             <tr>
                 <th scope="row">5</th>

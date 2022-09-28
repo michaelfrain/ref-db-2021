@@ -67,7 +67,7 @@ router.get('/videos', function(req, res, next) {
         res.render('reports-videos', {
             title: "Videos",
             layout: 'authlayout',
-            quizzes: active,
+            videos: active,
             userLevel: req.user.userLevel
         });
     } else {
