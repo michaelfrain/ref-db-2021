@@ -53,9 +53,13 @@
                 {{/if_equals}}
             </tr>
             <tr>
-                <th scope="row">6</th>
-                <td>Not available</td>
+                {{#if_equals userLevel "evaluator"}}
+                <td><a href="https://docs.google.com/spreadsheets/d/1M6pSv55y_vXUA6esp8-Msz2y3MteBH2sfeFjrB6QIsE">Evaluator View</a></td>
+                <td><a href="https://docs.google.com/spreadsheets/d/1brA4i6igFOr0WqNeZeLLoX51KoYaklWYlJDYOm5ne7M">Officials View</a></td>
+                {{else}}
+                <td><a href="https://docs.google.com/spreadsheets/d/1brA4i6igFOr0WqNeZeLLoX51KoYaklWYlJDYOm5ne7M">Officials View</a></td>
                 <td></td>
+                {{/if_equals}}
             </tr>
             <tr>
                 <th scope="row">7</th>
