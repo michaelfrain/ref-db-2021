@@ -14,6 +14,23 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/allusers', async function(req, res, next) {
+  const users = await User.find();
+
+  if (users != null) {
+    let active = "active";
+    res.render('allusers', {
+      title: 'List of users',
+      layout: 'authlayout',
+      register: active,
+      userLevel: req.user.userLevel,
+      userList: users
+    });
+  } else {
+    res.status(500);
+  }
+});
+
 router.post('/create', async function(req, res, next) {
   let { firstname, lastname, email, userLevel } = req.body;
 

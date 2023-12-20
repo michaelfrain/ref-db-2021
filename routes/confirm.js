@@ -20,31 +20,23 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
     let email = req.body.email;
 
-    User.findOne({ email: email }, function(err, user) {
-        if (err) {
-            console.log(err);
-            res.app.locals.message = 'Unknown error.';
-            res.app.locals.alertLevel = 'danger';
-            res.redirect('/confirm');
-            return;
-        }
+    const user = User.findOne({ email: email });
 
-        if (user == undefined) {
-            res.app.locals.message = 'User not found.';
-            res.app.locals.alertLevel = 'danger';
-            res.redirect('/confirm');
-            return;
-        }
+    if (user === undefined) {
+        res.app.locals.message = 'User not found.';
+        res.app.locals.alertLevel = 'danger';
+        res.redirect('/confirm');
+        return;
+    }
+      
+    if (user.status === 'confirmed') {
+        res.app.locals.message = 'User already confirmed.';
+        res.app.locals.alertLevel = 'warning';
+        res.redirect('/confirm');
+        return;
+    }
 
-        if (user.status == 'confirmed') {
-            res.app.locals.message = 'User already confirmed.';
-            res.app.locals.alertLevel = 'warning';
-            res.redirect('/confirm');
-            return;
-        }
-
-        res.redirect('/confirm/' + user._id);
-    });
+    res.redirect('/confirm/' + user._id);
 });
 
 router.get('/:id', function(req, res, next) {

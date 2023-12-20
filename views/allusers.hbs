@@ -1,0 +1,25 @@
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>E-mail address</th>
+                <th>User type</th>
+                <th></th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each userList}}
+            <tr>
+            <td>{{this.firstname}}</td>
+            <td>{{this.lastname}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.userLevel}}</td>
+            <td><a href="/users/{{this._id}}/edit">Edit</a></td>
+            <td><a href="/users/{{this._id}}/delete">Delete</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+</table>
